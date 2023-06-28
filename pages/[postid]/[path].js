@@ -28,21 +28,12 @@ function PostDetail({ data, host }) {
   return (
     <div>
       <Head>
-        <title>
-                  {post.title}
-                </title>
-                <meta
-                  property="og:title"
-                  content={post.title}
+                  <meta
                   property="og:url"
                   content={`${host}/_next/image?url=${encodeURIComponent(
                     post.featuredImage?.node.sourceUrl
                   )}&w=3840&q=100`}
                 />
-                <meta
-                  property="og:image"
-                  content={post.featuredImage?.node.sourceUrl}
-                /> 
       </Head>
       <main>
         <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
