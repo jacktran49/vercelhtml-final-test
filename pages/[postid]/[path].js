@@ -28,16 +28,21 @@ function PostDetail({ data, host }) {
   return (
     <div>
       <Head>
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="article" />
-        {data.title && <title>{data.title}</title>}
-        {data.title && <meta name="og:title" content={data.title} />}
-        {data.image && <meta name="og:image" content={data.image} />}
-        {data.title && data.image && <meta name="og:image:alt" content={data.title} />}
-        {data.destination && <meta name="og:destination" content={data.destination} />}
-        {host && <meta name="og:url" content={`https://${host}/posts/${postid}/${path}`} />}
-        {host && <meta property="og:site_name" content={host.split('.')[0]} />}
-        <link rel="icon" href="/favicon.ico" />
+        <title>
+                  {post.title}
+                </title>
+                <meta
+                  property="og:title"
+                  content={post.title}
+                  property="og:url"
+                  content={`${host}/_next/image?url=${encodeURIComponent(
+                    post.featuredImage?.node.sourceUrl
+                  )}&w=3840&q=100`}
+                />
+                <meta
+                  property="og:image"
+                  content={post.featuredImage?.node.sourceUrl}
+                /> 
       </Head>
       <main>
         <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
